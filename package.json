@@ -1,7 +1,7 @@
 {
-  "name": "pi-network-site",
+  "name": "pi-crypto-kru-site",
   "version": "1.0.0",
-  "description": "Site web moderne pour promouvoir PI Network avec le code de parrainage Rodriguez003",
+  "description": "Site web moderne pour promouvoir PI crypto avec le code de parrainage Rodriguez003",
   "main": "index.html",
   "scripts": {
     "start": "npx live-server --port=8080",
@@ -10,7 +10,7 @@
     "test": "echo 'No tests specified'"
   },
   "keywords": [
-    "pi-network",
+    "pi-crypto-kru",
     "cryptocurrency",
     "referral",
     "blockchain",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Rodriguez001/Pi-network.git"
+    "url": "https://github.com/Rodriguez001/pi-network.git"
   },
-  "homepage": "https://pi-network-kru.netlify.app"
+  "homepage": "https://pi-crypto-kru.netlify.app"
 }

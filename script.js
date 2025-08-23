@@ -11,12 +11,12 @@ const translations = {
             "join": "Rejoindre"
         },
         "hero": {
-            "title": "💎 Rejoignez PI Network",
+            "title": "💎 Rejoignez PI crypto",
             "subtitle": "La première crypto-monnaie que vous pouvez miner sur votre téléphone",
             "cta": "Commencer maintenant"
         },
         "about": {
-            "title": "Qu'est-ce que PI Network ?",
+            "title": "Qu'est-ce que PI crypto ?",
             "features": {
                 "mobile": {
                     "title": "Minage Mobile",
@@ -45,17 +45,17 @@ const translations = {
             }
         },
         "stats": {
-            "title": "PI Network en Chiffres",
+            "title": "PI crypto en Chiffres",
             "pioneers": "Pionniers Actifs",
             "countries": "Pays Représentés",
             "apps": "Applications Développées",
             "launch": "Année de Lancement"
         },
         "steps": {
-            "title": "Comment Rejoindre PI Network",
+            "title": "Comment Rejoindre PI crypto",
             "step1": {
                 "title": "Téléchargez l'App",
-                "description": "Téléchargez l'application PI Network depuis l'App Store ou Google Play Store."
+                "description": "Téléchargez l'application PI crypto depuis l'App Store ou Google Play Store."
             },
             "step2": {
                 "title": "Utilisez mon Code",
@@ -75,8 +75,8 @@ const translations = {
             }
         },
         "footer": {
-            "copyright": "© 2024 PI Network - Rejoignez la révolution crypto avec Rodriguez003",
-            "disclaimer": "⚠️ PI Network est encore en phase de développement. Les PI coins n'ont pas encore de valeur monétaire."
+            "copyright": "© 2024 PI crypto - Rejoignez la révolution crypto avec Rodriguez003",
+            "disclaimer": "⚠️ PI crypto est encore en phase de développement. Les PI coins n'ont pas encore de valeur monétaire."
         }
     },
     "en": {
@@ -87,12 +87,12 @@ const translations = {
             "join": "Join"
         },
         "hero": {
-            "title": "💎 Join PI Network",
+            "title": "💎 Join PI crypto",
             "subtitle": "The first cryptocurrency you can mine on your phone",
             "cta": "Start Now"
         },
         "about": {
-            "title": "What is PI Network?",
+            "title": "What is PI crypto?",
             "features": {
                 "mobile": {
                     "title": "Mobile Mining",
@@ -116,22 +116,22 @@ const translations = {
                 },
                 "referral": {
                     "title": "Referral",
-                    "description": "Earn more PI by inviting your friends and building your security network."
+                    "description": "Earn more PI by inviting your friends and building your security crypto."
                 }
             }
         },
         "stats": {
-            "title": "PI Network in Numbers",
+            "title": "PI crypto in Numbers",
             "pioneers": "Active Pioneers",
             "countries": "Countries Represented",
             "apps": "Apps Developed",
             "launch": "Launch Year"
         },
         "steps": {
-            "title": "How to Join PI Network",
+            "title": "How to Join PI crypto",
             "step1": {
                 "title": "Download the App",
-                "description": "Download the PI Network app from the App Store or Google Play Store."
+                "description": "Download the PI crypto app from the App Store or Google Play Store."
             },
             "step2": {
                 "title": "Use my Code",
@@ -151,8 +151,8 @@ const translations = {
             }
         },
         "footer": {
-            "copyright": "© 2024 PI Network - Join the crypto revolution with Rodriguez003",
-            "disclaimer": "⚠️ PI Network is still in development phase. PI coins do not yet have monetary value."
+            "copyright": "© 2024 PI crypto - Join the crypto revolution with Rodriguez003",
+            "disclaimer": "⚠️ PI crypto is still in development phase. PI coins do not yet have monetary value."
         }
     },
     "es": {
@@ -163,12 +163,12 @@ const translations = {
             "join": "Unirse"
         },
         "hero": {
-            "title": "💎 Únete a PI Network",
+            "title": "💎 Únete a PI crypto",
             "subtitle": "La primera criptomoneda que puedes minar en tu teléfono",
             "cta": "Comenzar Ahora"
         },
         "about": {
-            "title": "¿Qué es PI Network?",
+            "title": "¿Qué es PI crypto?",
             "features": {
                 "mobile": {
                     "title": "Minería Móvil",
@@ -197,17 +197,17 @@ const translations = {
             }
         },
         "stats": {
-            "title": "PI Network en Números",
+            "title": "PI crypto en Números",
             "pioneers": "Pioneros Activos",
             "countries": "Países Representados",
             "apps": "Aplicaciones Desarrolladas",
             "launch": "Año de Lanzamiento"
         },
         "steps": {
-            "title": "Cómo Unirse a PI Network",
+            "title": "Cómo Unirse a PI crypto",
             "step1": {
                 "title": "Descarga la App",
-                "description": "Descarga la aplicación PI Network desde la App Store o Google Play Store."
+                "description": "Descarga la aplicación PI crypto desde la App Store o Google Play Store."
             },
             "step2": {
                 "title": "Usa mi Código",
@@ -227,8 +227,8 @@ const translations = {
             }
         },
         "footer": {
-            "copyright": "© 2024 PI Network - Únete a la revolución crypto con Rodriguez003",
-            "disclaimer": "⚠️ PI Network aún está en fase de desarrollo. Las monedas PI aún no tienen valor monetario."
+            "copyright": "© 2024 PI crypto - Únete a la revolución crypto con Rodriguez003",
+            "disclaimer": "⚠️ PI crypto aún está en fase de desarrollo. Las monedas PI aún no tienen valor monetario."
         }
     }
 };
@@ -236,7 +236,7 @@ const translations = {
 // Initialize translations
 function initTranslations() {
     // Get saved language or use browser language
-    const savedLang = localStorage.getItem('pinetwork-language');
+    const savedLang = localStorage.getItem('picrypto-language');
     const browserLang = navigator.language.substring(0, 2);
     currentLanguage = savedLang || (translations[browserLang] ? browserLang : 'fr');
     
@@ -267,9 +267,9 @@ function applyTranslations() {
     
     // Update page title
     const titles = {
-        'fr': 'PI Network - Rejoignez la Révolution Crypto 🚀',
-        'en': 'PI Network - Join the Crypto Revolution 🚀',
-        'es': 'PI Network - Únete a la Revolución Crypto 🚀'
+        'fr': 'PI crypto - Rejoignez la Révolution Crypto 🚀',
+        'en': 'PI crypto - Join the Crypto Revolution 🚀',
+        'es': 'PI crypto - Únete a la Revolución Crypto 🚀'
     };
     document.title = titles[currentLanguage];
 }
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (languageSelect) {
         languageSelect.addEventListener('change', (e) => {
             currentLanguage = e.target.value;
-            localStorage.setItem('pinetwork-language', currentLanguage);
+            localStorage.setItem('picrypto-language', currentLanguage);
             applyTranslations();
             updateCopyMessage();
         });

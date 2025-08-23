@@ -1,6 +1,6 @@
-# PI Network - Site de Parrainage
+# PI crypto - Site de Parrainage
 
-Site web moderne et responsive pour promouvoir PI Network avec le code de parrainage **Rodriguez003**.
+Site web moderne et responsive pour promouvoir PI crypto avec le code de parrainage **Rodriguez003**.
 
 ## Fonctionnalités
 
@@ -9,7 +9,7 @@ Site web moderne et responsive pour promouvoir PI Network avec le code de parrai
 - **Responsive** : Compatible mobile et desktop
 - **Code de parrainage intégré** : Rodriguez003
 - **QR Code automatique** pour inscription rapide
-- **Sections informatives** complètes sur PI Network
+- **Sections informatives** complètes sur PI crypto
 
 ## Technologies Utilisées
 
@@ -23,7 +23,7 @@ Site web moderne et responsive pour promouvoir PI Network avec le code de parrai
 ## Structure du Projet
 
 ```
-Pi-network/
+pi-network/
 ├── index.html          # Page principale
 ├── style.css           # Styles et thème sombre
 ├── script.js           # Logique JavaScript et traductions
@@ -75,7 +75,7 @@ npx live-server
 ### GitHub Pages
 1. Poussez le code sur GitHub
 2. Activez Pages dans Settings
-3. Site disponible sur `username.github.io/Pi-network`
+3. Site disponible sur `username.github.io/pi-crypto-kru`
 
 ## Fonctionnalités Principales
 
@@ -87,15 +87,15 @@ npx live-server
 
 ### Sections Informatives
 - **Hero** : Présentation avec CTA
-- **À propos** : 6 fonctionnalités clés de PI Network
+- **À propos** : 6 fonctionnalités clés de PI crypto
 - **Statistiques** : Chiffres impressionnants (47M+ utilisateurs)
-- **Guide** : 4 étapes pour rejoindre PI Network
+- **Guide** : 4 étapes pour rejoindre PI crypto
 
 ## Changement de Langue
 
 Le système détecte automatiquement la langue du navigateur et sauvegarde la préférence utilisateur. Toutes les traductions sont intégrées dans le JavaScript pour un chargement rapide.
 
-## Statistiques PI Network
+## Statistiques PI crypto
 
 - **47M+** Pionniers Actifs
 - **230+** Pays Représentés  
@@ -116,10 +116,10 @@ Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
 
 ## Contact
 
-Pour toute question concernant PI Network ou ce site :
+Pour toute question concernant PI crypto ou ce site :
 - **Code de parrainage** : Rodriguez003
 - **Lien d'inscription** : https://minepi.com/Rodriguez003
 
 ---
 
-**Disclaimer** : PI Network est encore en phase de développement. Les PI coins n'ont pas encore de valeur monétaire.
+**Disclaimer** : PI crypto est encore en phase de développement. Les PI coins n'ont pas encore de valeur monétaire.
