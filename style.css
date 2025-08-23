@@ -33,12 +33,16 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(26, 26, 46, 0.95);
+    background: rgba(26, 26, 46, 0.95) !important;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-dark);
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
+}
+
+nav * {
+    color: var(--text-light) !important;
 }
 
 .nav-container {
@@ -53,7 +57,7 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent-gold);
+    color: var(--accent-gold) !important;
 }
 
 .nav-links {
@@ -63,14 +67,33 @@ nav {
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: var(--text-light);
+    text-decoration: none !important;
+    color: var(--text-light) !important;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--accent-gold);
+    color: var(--accent-gold) !important;
+}
+
+.nav-links a:visited {
+    color: var(--text-light) !important;
+}
+
+.nav-links a:active {
+    color: var(--accent-gold) !important;
+}
+
+.nav-links a:focus {
+    color: var(--text-light) !important;
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.nav-links a:link {
+    color: var(--text-light) !important;
 }
 
 /* Hero Section */

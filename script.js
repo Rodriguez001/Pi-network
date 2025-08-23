@@ -11,8 +11,8 @@ const translations = {
             "join": "Rejoindre"
         },
         "hero": {
-            "title": "💎 Rejoignez PI crypto",
-            "subtitle": "La première crypto-monnaie que vous pouvez miner sur votre téléphone",
+            "title": "💎 Rejoignez PI Network - avec Rodriguez",
+            "subtitle": "Minez la première crypto-monnaie gratuite sur votre téléphone mobile - 47M+ pionniers dans le monde",
             "cta": "Commencer maintenant"
         },
         "about": {
@@ -87,8 +87,8 @@ const translations = {
             "join": "Join"
         },
         "hero": {
-            "title": "💎 Join PI crypto",
-            "subtitle": "The first cryptocurrency you can mine on your phone",
+            "title": "💎 Join PI Network - with Rodriguez",
+            "subtitle": "Mine the first free cryptocurrency on your mobile phone - 47M+ pioneers worldwide",
             "cta": "Start Now"
         },
         "about": {
@@ -163,8 +163,8 @@ const translations = {
             "join": "Unirse"
         },
         "hero": {
-            "title": "💎 Únete a PI crypto",
-            "subtitle": "La primera criptomoneda que puedes minar en tu teléfono",
+            "title": "💎 Únete a PI Network - con Rodriguez",
+            "subtitle": "Mina la primera criptomoneda gratuita en tu teléfono móvil - 47M+ pioneros en el mundo",
             "cta": "Comenzar Ahora"
         },
         "about": {
