@@ -84,6 +84,7 @@ nav {
     color: var(--text-light);
     position: relative;
     overflow: hidden;
+    padding-top: 80px;
 }
 
 .hero::before {
@@ -135,6 +136,9 @@ nav {
     transition: all 0.3s ease;
     box-shadow: var(--shadow-light);
     color: var(--accent-gold);
+    position: sticky;
+    top: 100px;
+    z-index: 100;
 }
 
 .referral-code:hover {
@@ -270,9 +274,15 @@ nav {
 
 .steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+}
+
+.centered-step {
+    grid-column: 1 / -1;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .step-card {

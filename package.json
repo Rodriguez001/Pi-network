@@ -1,0 +1,30 @@
+{
+  "name": "pi-network-site",
+  "version": "1.0.0",
+  "description": "Site web moderne pour promouvoir PI Network avec le code de parrainage Rodriguez003",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --port=8080",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "netlify deploy --prod --dir=./",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "pi-network",
+    "cryptocurrency",
+    "referral",
+    "blockchain",
+    "mining"
+  ],
+  "author": "Rodriguez003",
+  "license": "MIT",
+  "devDependencies": {
+    "netlify-cli": "^17.0.0",
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rodriguez001/Pi-network.git"
+  },
+  "homepage": "https://pi-network-rodriguez003.netlify.app"
+}
