@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PI Network - Rejoignez la Révolution Crypto 🚀</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🥧 PI Network</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-translate="nav.home">Accueil</a></li>
+                <li><a href="#about" data-translate="nav.about">À propos</a></li>
+                <li><a href="#stats" data-translate="nav.stats">Statistiques</a></li>
+                <li><a href="#join" data-translate="nav.join">Rejoindre</a></li>
+            </ul>
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="es">🇪🇸 ES</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-translate="hero.title">💎 Rejoignez PI Network</h1>
+            <p data-translate="hero.subtitle">La première crypto-monnaie que vous pouvez miner sur votre téléphone</p>
+            <div class="referral-code">Rodriguez003</div>
+            <a href="https://minepi.com/Rodriguez003" target="_blank" class="cta-button">
+                <i class="fas fa-rocket"></i> <span data-translate="hero.cta">Commencer maintenant</span>
+            </a>
+            
+            <!-- QR Code in Hero -->
+            <div class="hero-qr-section">
+                <h3 data-translate="steps.qr.title">Ou scannez ce QR Code :</h3>
+                <div class="hero-qr-container">
+                    <canvas id="qrcode"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About PI Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="about.title">Qu'est-ce que PI Network ?</h2>
+            <div class="about-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 data-translate="about.features.mobile.title">Minage Mobile</h3>
+                    <p data-translate="about.features.mobile.description">Minez des PI coins directement depuis votre smartphone sans drainer votre batterie ni consommer vos données.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-translate="about.features.community.title">Communauté Mondiale</h3>
+                    <p data-translate="about.features.community.description">Rejoignez plus de 47 millions de pionniers dans le monde entier qui construisent l'écosystème PI.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-translate="about.features.secure.title">Sécurisé</h3>
+                    <p data-translate="about.features.secure.description">Développé par des docteurs de Stanford avec un protocole de consensus innovant et sécurisé.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 data-translate="about.features.free.title">Gratuit</h3>
+                    <p data-translate="about.features.free.description">Commencez à miner gratuitement dès aujourd'hui. Aucun investissement initial requis.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-translate="about.features.growth.title">Potentiel de Croissance</h3>
+                    <p data-translate="about.features.growth.description">Entrez tôt dans l'écosystème avant le lancement officiel sur les exchanges.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 data-translate="about.features.referral.title">Parrainage</h3>
+                    <p data-translate="about.features.referral.description">Gagnez plus de PI en invitant vos amis et en construisant votre réseau de sécurité.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="section stats">
+        <div class="container">
+            <h2 class="section-title" data-translate="stats.title">PI Network en Chiffres</h2>
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <h3>47M+</h3>
+                    <p data-translate="stats.pioneers">Pionniers Actifs</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>230+</h3>
+                    <p data-translate="stats.countries">Pays Représentés</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>100K+</h3>
+                    <p data-translate="stats.apps">Applications Développées</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>2019</h3>
+                    <p data-translate="stats.launch">Année de Lancement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Join Section -->
+    <section id="join" class="section steps">
+        <div class="container">
+            <h2 class="section-title" data-translate="steps.title">Comment Rejoindre PI Network</h2>
+            <div class="steps-grid">
+                <div class="step-card fade-in">
+                    <div class="step-number">1</div>
+                    <h3 data-translate="steps.step1.title">Téléchargez l'App</h3>
+                    <p data-translate="steps.step1.description">Téléchargez l'application PI Network depuis l'App Store ou Google Play Store.</p>
+                </div>
+                <div class="step-card fade-in">
+                    <div class="step-number">2</div>
+                    <h3 data-translate="steps.step2.title">Utilisez mon Code</h3>
+                    <p data-translate="steps.step2.description">Lors de l'inscription, utilisez mon code de parrainage : <strong>Rodriguez003</strong></p>
+                </div>
+                <div class="step-card fade-in">
+                    <div class="step-number">3</div>
+                    <h3 data-translate="steps.step3.title">Commencez à Miner</h3>
+                    <p data-translate="steps.step3.description">Appuyez sur le bouton de minage une fois par jour pour commencer à gagner des PI coins.</p>
+                </div>
+                <div class="step-card fade-in">
+                    <div class="step-number">4</div>
+                    <h3 data-translate="steps.step4.title">Invitez vos Amis</h3>
+                    <p data-translate="steps.step4.description">Partagez votre propre code de parrainage pour augmenter votre taux de minage.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-translate="footer.copyright">&copy; 2024 PI Network - Rejoignez la révolution crypto avec Rodriguez003</p>
+            <p data-translate="footer.disclaimer">⚠️ PI Network est encore en phase de développement. Les PI coins n'ont pas encore de valeur monétaire.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
