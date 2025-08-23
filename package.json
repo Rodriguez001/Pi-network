@@ -18,6 +18,11 @@
   ],
   "author": "Rodriguez003",
   "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.7"
+  },
   "devDependencies": {
     "netlify-cli": "^17.0.0",
     "live-server": "^1.2.2"

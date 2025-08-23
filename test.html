@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Traductions PI Network</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        button { margin: 5px; padding: 10px; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Test du Système de Traductions</h1>
+    
+    <div class="test-section">
+        <h2>Sélecteur de langue</h2>
+        <select id="languageSelect">
+            <option value="fr">🇫🇷 FR</option>
+            <option value="en">🇺🇸 EN</option>
+            <option value="es">🇪🇸 ES</option>
+        </select>
+    </div>
+    
+    <div class="test-section">
+        <h2>Éléments à traduire</h2>
+        <p data-translate="nav.home">Accueil</p>
+        <p data-translate="nav.about">À propos</p>
+        <p data-translate="hero.title">💎 Rejoignez PI Network - avec Rodriguez</p>
+        <p data-translate="auth.login">Connexion</p>
+        <p data-translate="contact.title">Contactez-nous</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Boutons de test</h2>
+        <button onclick="testTranslations()">Tester les traductions</button>
+        <button onclick="showConsoleInfo()">Afficher infos console</button>
+        <button id="loginBtn">Bouton Connexion</button>
+    </div>
+    
+    <div id="results"></div>
+
+    <script src="script.js"></script>
+    <script>
+        function testTranslations() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<h3>Résultats des tests:</h3>';
+            
+            // Test 1: Vérifier si les traductions existent
+            const langs = ['fr', 'en', 'es'];
+            langs.forEach(lang => {
+                const navHome = getNestedTranslation(translations[lang], 'nav.home');
+                const heroTitle = getNestedTranslation(translations[lang], 'hero.title');
+                results.innerHTML += `<p><strong>${lang}:</strong> nav.home = "${navHome}", hero.title = "${heroTitle}"</p>`;
+            });
+            
+            // Test 2: Appliquer les traductions
+            applyTranslations();
+            results.innerHTML += '<p class="success">Traductions appliquées!</p>';
+        }
+        
+        function showConsoleInfo() {
+            console.log('=== INFORMATIONS DEBUG ===');
+            console.log('currentLanguage:', currentLanguage);
+            console.log('translations object:', translations);
+            console.log('Elements with data-translate:', document.querySelectorAll('[data-translate]').length);
+            console.log('Language selector:', document.getElementById('languageSelect'));
+        }
+        
+        // Test du bouton de connexion
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginBtn = document.getElementById('loginBtn');
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function() {
+                    alert('Bouton de connexion fonctionne!');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

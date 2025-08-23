@@ -144,7 +144,14 @@
                 <li><a href="#about" data-translate="nav.about">À propos</a></li>
                 <li><a href="#stats" data-translate="nav.stats">Statistiques</a></li>
                 <li><a href="#join" data-translate="nav.join">Rejoindre</a></li>
+                <li><a href="#contact" data-translate="nav.contact">Contact</a></li>
+                <li><a href="#reviews" data-translate="nav.reviews">Avis</a></li>
             </ul>
+            <div class="auth-section">
+                <button id="loginBtn" class="auth-btn" data-translate="auth.login">Connexion</button>
+                <button id="logoutBtn" class="auth-btn hidden" data-translate="auth.logout">Déconnexion</button>
+                <span id="userWelcome" class="user-welcome hidden"></span>
+            </div>
             <div class="language-selector">
                 <select id="languageSelect">
                     <option value="fr">🇫🇷 FR</option>
@@ -166,13 +173,6 @@
                 🚀 <span data-translate="hero.cta">Commencer maintenant</span>
             </a>
             
-            <!-- QR Code in Hero -->
-            <div class="hero-qr-section">
-                <h3 data-translate="steps.qr.title">Ou scannez ce QR Code :</h3>
-                <div class="hero-qr-container">
-                    <canvas id="qrcode"></canvas>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -287,7 +287,172 @@
 
         </div>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <header>
+                <h2 class="section-title" data-translate="contact.title">Contactez Rodriguez</h2>
+            </header>
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name" data-translate="contact.form.name">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-translate="contact.form.email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-translate="contact.form.subject">Sujet</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" data-translate="contact.form.select">Sélectionnez un sujet</option>
+                                <option value="pi-network" data-translate="contact.form.pi">Question PI Network</option>
+                                <option value="referral" data-translate="contact.form.referral">Code de parrainage</option>
+                                <option value="support" data-translate="contact.form.support">Support technique</option>
+                                <option value="other" data-translate="contact.form.other">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-translate="contact.form.message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" data-translate="contact.form.send">Envoyer</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3 data-translate="contact.info.title">Informations de contact</h3>
+                        <p>📧 s16programmeomega@gmail.com</p>
+                        <p>🥧 Code PI Network: <strong>Rodriguez003</strong></p>
+                        <p data-translate="contact.info.response">Réponse sous 24h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section reviews">
+        <div class="container">
+            <header>
+                <h2 class="section-title" data-translate="reviews.title">Avis de la Communauté</h2>
+            </header>
+            <div class="reviews-content">
+                <div class="add-review" id="addReviewSection">
+                    <h3 data-translate="reviews.add.title">Partagez votre expérience</h3>
+                    <form id="reviewForm" class="review-form">
+                        <div class="form-group">
+                            <label for="reviewName" data-translate="reviews.form.name">Nom (optionnel)</label>
+                            <input type="text" id="reviewName" name="reviewName">
+                        </div>
+                        <div class="form-group">
+                            <label for="rating" data-translate="reviews.form.rating">Note</label>
+                            <div class="star-rating">
+                                <span class="star" data-rating="1">⭐</span>
+                                <span class="star" data-rating="2">⭐</span>
+                                <span class="star" data-rating="3">⭐</span>
+                                <span class="star" data-rating="4">⭐</span>
+                                <span class="star" data-rating="5">⭐</span>
+                            </div>
+                            <input type="hidden" id="rating" name="rating" value="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewText" data-translate="reviews.form.review">Votre avis</label>
+                            <textarea id="reviewText" name="reviewText" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" data-translate="reviews.form.submit">Publier l'avis</button>
+                    </form>
+                </div>
+                <div class="reviews-list" id="reviewsList">
+                    <!-- Reviews will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Messages Section (for logged users) -->
+    <section id="messages" class="section messages hidden">
+        <div class="container">
+            <header>
+                <h2 class="section-title" data-translate="messages.title">Mes Conversations</h2>
+            </header>
+            <div class="messages-content">
+                <div class="conversation-list">
+                    <div class="conversation-item active">
+                        <h4 data-translate="messages.with">Conversation avec Rodriguez</h4>
+                        <p class="last-message" data-translate="messages.welcome">Bienvenue ! Comment puis-je vous aider ?</p>
+                    </div>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message admin-message">
+                            <div class="message-content">
+                                <p data-translate="messages.welcome">Bienvenue ! Comment puis-je vous aider avec PI Network ?</p>
+                                <span class="message-time">Maintenant</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <form id="messageForm">
+                            <input type="text" id="messageInput" placeholder="Tapez votre message..." data-translate="messages.placeholder">
+                            <button type="submit">📤</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     </main>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="loginForm" class="auth-form">
+                <h2 data-translate="auth.login.title">Connexion</h2>
+                <form id="loginFormElement">
+                    <div class="form-group">
+                        <label for="loginEmail" data-translate="auth.email">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword" data-translate="auth.password">Mot de passe</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="submit-btn" data-translate="auth.login">Connexion</button>
+                </form>
+                <p class="auth-switch">
+                    <span data-translate="auth.no.account">Pas de compte ?</span>
+                    <a href="#" id="showRegister" data-translate="auth.register">S'inscrire</a>
+                </p>
+            </div>
+            <div id="registerForm" class="auth-form hidden">
+                <h2 data-translate="auth.register.title">Inscription</h2>
+                <form id="registerFormElement">
+                    <div class="form-group">
+                        <label for="registerName" data-translate="auth.name">Nom</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail" data-translate="auth.email">Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword" data-translate="auth.password">Mot de passe</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <button type="submit" class="submit-btn" data-translate="auth.register">S'inscrire</button>
+                </form>
+                <p class="auth-switch">
+                    <span data-translate="auth.have.account">Déjà un compte ?</span>
+                    <a href="#" id="showLogin" data-translate="auth.login">Se connecter</a>
+                </p>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -298,7 +463,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" defer></script>
     <script src="script.js" defer></script>
 </body>
 </html>
