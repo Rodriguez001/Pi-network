@@ -81,6 +81,33 @@ async function handleLogin(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     
+    // Check if we're running locally
+    if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        // Simulate local login
+        const email = formData.get('loginEmail') || formData.get('email');
+        const password = formData.get('loginPassword') || formData.get('password');
+        
+        if (email && password) {
+            // Create mock user
+            currentUser = { 
+                name: email.split('@')[0], 
+                email: email,
+                id: 'local_user_' + Date.now()
+            };
+            
+            // Create mock token
+            authToken = 'local_token_' + Date.now();
+            localStorage.setItem('pi-auth-token', authToken);
+            
+            updateAuthUI();
+            hideAuthModal();
+            showNotification('Connexion réussie !', 'success');
+        } else {
+            showNotification('Veuillez remplir tous les champs', 'error');
+        }
+        return;
+    }
+    
     try {
         const response = await fetch('/.netlify/functions/auth', {
             method: 'POST',
@@ -112,6 +139,34 @@ async function handleLogin(event) {
 async function handleRegister(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
+    
+    // Check if we're running locally
+    if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        // Simulate local registration
+        const name = formData.get('registerName') || formData.get('name');
+        const email = formData.get('registerEmail') || formData.get('email');
+        const password = formData.get('registerPassword') || formData.get('password');
+        
+        if (name && email && password) {
+            // Create mock user
+            currentUser = { 
+                name: name, 
+                email: email,
+                id: 'local_user_' + Date.now()
+            };
+            
+            // Create mock token
+            authToken = 'local_token_' + Date.now();
+            localStorage.setItem('pi-auth-token', authToken);
+            
+            updateAuthUI();
+            hideAuthModal();
+            showNotification('Inscription réussie !', 'success');
+        } else {
+            showNotification('Veuillez remplir tous les champs', 'error');
+        }
+        return;
+    }
     
     try {
         const response = await fetch('/.netlify/functions/auth', {
@@ -162,6 +217,24 @@ async function handleContactSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     
+    // Check if we're running locally
+    if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        // Simulate local contact form submission
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
+        
+        if (name && email && subject && message) {
+            console.log('Local contact form submission:', { name, email, subject, message });
+            showNotification('Message envoyé avec succès !', 'success');
+            event.target.reset();
+        } else {
+            showNotification('Veuillez remplir tous les champs', 'error');
+        }
+        return;
+    }
+    
     try {
         const response = await fetch('/.netlify/functions/contact', {
             method: 'POST',
@@ -193,7 +266,14 @@ function initReviews() {
     if (reviewForm) {
         reviewForm.addEventListener('submit', handleReviewSubmit);
         initStarRating();
-        loadReviews();
+        
+        // Force load reviews after a delay to ensure DOM is ready
+        setTimeout(() => {
+            console.log('Force loading reviews after DOM ready...');
+            loadReviews();
+        }, 1000);
+    } else {
+        console.error('Review form not found!');
     }
 }
 
@@ -234,14 +314,47 @@ async function handleReviewSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     
+    // Check if we're running locally
+    if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        // Simulate local review submission
+        const newReview = {
+            id: "review_" + Date.now(),
+            name: formData.get('reviewName') || 'Utilisateur anonyme',
+            rating: parseInt(formData.get('rating')) || 5,
+            comment: formData.get('reviewText'),
+            date: new Date().toLocaleDateString('fr-FR')
+        };
+        
+        // Add to existing reviews display
+        const reviewsList = document.getElementById('reviewsList');
+        if (reviewsList) {
+            const reviewHTML = `
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-author">${newReview.name}</span>
+                        <span class="review-rating">${'⭐'.repeat(newReview.rating)}</span>
+                    </div>
+                    <p class="review-text">${newReview.comment}</p>
+                    <span class="review-date">${newReview.date}</span>
+                </div>
+            `;
+            reviewsList.insertAdjacentHTML('afterbegin', reviewHTML);
+        }
+        
+        showNotification('Avis publié avec succès !', 'success');
+        event.target.reset();
+        setRating(0);
+        return;
+    }
+    
     try {
         const response = await fetch('/.netlify/functions/reviews', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                name: formData.get('name'),
+                name: formData.get('reviewName'),
                 rating: parseInt(formData.get('rating')),
-                comment: formData.get('comment')
+                comment: formData.get('reviewText')
             })
         });
         
@@ -262,36 +375,121 @@ async function handleReviewSubmit(event) {
 
 async function loadReviews() {
     try {
-        const response = await fetch('/.netlify/functions/reviews');
-        const result = await response.json();
+        console.log('Loading reviews...');
         
-        if (response.ok) {
+        // Check if we're running locally - if so, show demo reviews
+        if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('Running locally - showing demo reviews');
+            const demoReviews = [
+                {
+                    id: "review_001",
+                    name: "Marie L.",
+                    rating: 5,
+                    comment: "J'ai rejoint PI Network avec le code Rodriguez003 il y a 6 mois. L'application est très simple à utiliser, je mine juste en appuyant sur un bouton une fois par jour. J'ai déjà accumulé plus de 1000 PI coins !",
+                    date: "15/08/2024"
+                },
+                {
+                    id: "review_002", 
+                    name: "Thomas M.",
+                    rating: 4,
+                    comment: "Excellent concept ! Le fait de pouvoir miner sans consommer de batterie est révolutionnaire. Rodriguez003 m'a bien expliqué le processus. J'ai invité 15 amis et mon taux de minage a considérablement augmenté.",
+                    date: "10/08/2024"
+                },
+                {
+                    id: "review_003",
+                    name: "Sophie D.",
+                    rating: 5,
+                    comment: "PI Network change la donne ! Développé par Stanford, c'est sérieux. J'ai commencé avec 0.25 PI/h et maintenant je mine à 1.5 PI/h grâce à mon réseau de sécurité. Merci Rodriguez003 pour le code !",
+                    date: "05/08/2024"
+                },
+                {
+                    id: "review_004",
+                    name: "Alexandre B.",
+                    rating: 4,
+                    comment: "47 millions d'utilisateurs, ça se sent ! La communauté est très active. L'app fonctionne parfaitement sur Android. Hâte de voir PI sur les exchanges. Rodriguez003 répond rapidement aux questions.",
+                    date: "28/07/2024"
+                },
+                {
+                    id: "review_005",
+                    name: "Camille R.",
+                    rating: 5,
+                    comment: "Incroyable ! J'ai téléchargé l'app, utilisé le code Rodriguez003 et en 3 mois j'ai miné plus de 800 PI. L'équipe de Stanford a créé quelque chose d'unique. L'avenir de la crypto !",
+                    date: "20/07/2024"
+                },
+                {
+                    id: "review_006",
+                    name: "Julien P.",
+                    rating: 4,
+                    comment: "PI Network respecte vraiment ses promesses. Pas de pub invasive, pas de consommation excessive. Rodriguez003 est un excellent ambassadeur. Mon portefeuille grandit chaque jour !",
+                    date: "15/07/2024"
+                },
+                {
+                    id: "review_007",
+                    name: "Émilie T.",
+                    rating: 5,
+                    comment: "Fantastique ! En tant que développeuse, j'apprécie l'approche technique de PI. Le consensus protocol est innovant. Rodriguez003 m'a convaincue et je ne regrette pas. Déjà 1200 PI minés !",
+                    date: "08/07/2024"
+                },
+                {
+                    id: "review_008",
+                    name: "Lucas G.",
+                    rating: 4,
+                    comment: "Super expérience ! L'inscription avec Rodriguez003 s'est faite en 2 minutes. L'interface est intuitive. J'ai invité ma famille et on mine tous ensemble. Vivement le mainnet !",
+                    date: "30/06/2024"
+                }
+            ];
+            displayReviews(demoReviews);
+            return;
+        }
+        
+        const response = await fetch('/.netlify/functions/reviews');
+        console.log('Reviews response status:', response.status);
+        
+        const result = await response.json();
+        console.log('Reviews result:', result);
+        
+        if (response.ok && result.reviews) {
+            console.log('Displaying', result.reviews.length, 'reviews');
             displayReviews(result.reviews);
+        } else {
+            console.error('Failed to load reviews:', result);
+            displayReviews([]);
         }
     } catch (error) {
         console.error('Error loading reviews:', error);
+        displayReviews([]);
     }
 }
 
 function displayReviews(reviews) {
     const reviewsList = document.getElementById('reviewsList');
-    if (!reviewsList) return;
+    console.log('displayReviews called with:', reviews);
+    console.log('reviewsList element:', reviewsList);
     
-    if (reviews.length === 0) {
+    if (!reviewsList) {
+        console.error('reviewsList element not found!');
+        return;
+    }
+    
+    if (!reviews || reviews.length === 0) {
+        console.log('No reviews to display');
         reviewsList.innerHTML = `<p class="no-reviews">${translations[currentLanguage]?.reviews?.noReviews || 'Aucun avis pour le moment.'}</p>`;
         return;
     }
     
+    console.log('Rendering', reviews.length, 'reviews');
     reviewsList.innerHTML = reviews.map(review => `
         <div class="review-item">
             <div class="review-header">
-                <span class="review-author">${review.name}</span>
-                <span class="review-rating">${'⭐'.repeat(review.rating)}</span>
+                <span class="review-author">${review.name || 'Anonyme'}</span>
+                <span class="review-rating">${'⭐'.repeat(review.rating || 5)}</span>
             </div>
-            <p class="review-text">${review.comment}</p>
-            <span class="review-date">${review.date}</span>
+            <p class="review-text">${review.comment || review.text || 'Pas de commentaire'}</p>
+            <span class="review-date">${review.date || new Date().toLocaleDateString('fr-FR')}</span>
         </div>
     `).join('');
+    
+    console.log('Reviews HTML updated');
 }
 
 // Messages functions
@@ -318,6 +516,41 @@ async function handleMessageSubmit(event) {
     const message = formData.get('message');
     
     if (!message?.trim()) return;
+    
+    // Check if we're running locally
+    if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        // Simulate local message submission
+        const messagesContainer = document.getElementById('chatMessages');
+        if (messagesContainer) {
+            const messageHTML = `
+                <div class="message user-message">
+                    <div class="message-content">
+                        ${message.trim()}
+                        <span class="message-time">${new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute: '2-digit'})}</span>
+                    </div>
+                </div>
+            `;
+            messagesContainer.insertAdjacentHTML('beforeend', messageHTML);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            // Simulate admin response after 2 seconds
+            setTimeout(() => {
+                const adminResponse = `
+                    <div class="message admin-message">
+                        <div class="message-content">
+                            Merci pour votre message ! Je vous répondrai bientôt concernant PI Network.
+                            <span class="message-time">${new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute: '2-digit'})}</span>
+                        </div>
+                    </div>
+                `;
+                messagesContainer.insertAdjacentHTML('beforeend', adminResponse);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 2000);
+        }
+        
+        event.target.reset();
+        return;
+    }
     
     try {
         const response = await fetch('/.netlify/functions/messages', {

@@ -1,7 +1,4 @@
 const { reviewsDB } = require('./database');
-const { seedData } = require('./seed-data');
-
-// Database storage instead of in-memory
 
 exports.handler = async (event, context) => {
   const headers = {
@@ -16,9 +13,6 @@ exports.handler = async (event, context) => {
 
   try {
     if (event.httpMethod === 'GET') {
-      // Seed data if empty
-      await seedData();
-      
       // Get all reviews from database
       const allReviews = await reviewsDB.findAll();
       const sortedReviews = allReviews
@@ -35,10 +29,10 @@ exports.handler = async (event, context) => {
       };
 
     } else if (event.httpMethod === 'POST') {
-      const { name, rating, text } = JSON.parse(event.body);
+      const { name, rating, comment } = JSON.parse(event.body);
 
       // Validate input
-      if (!text || !rating || rating < 1 || rating > 5) {
+      if (!comment || !rating || rating < 1 || rating > 5) {
         return {
           statusCode: 400,
           headers,
@@ -50,7 +44,7 @@ exports.handler = async (event, context) => {
       const newReview = await reviewsDB.create({
         name: name || 'Utilisateur anonyme',
         rating: parseInt(rating),
-        text: text.trim(),
+        comment: comment.trim(),
         verified: false
       });
 
