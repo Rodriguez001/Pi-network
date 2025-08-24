@@ -561,6 +561,12 @@ const translations = {
             "register": "Inscription",
             "logout": "Déconnexion",
             "welcome": "Bienvenue",
+            "have": {
+                "account": "Déjà un compte ?"
+            },
+            "no": {
+                "account": "Pas de compte ?"
+            },
             "loginForm": {
                 "title": "Connexion",
                 "email": "Email",
@@ -693,6 +699,12 @@ const translations = {
             "register": "Register",
             "logout": "Logout",
             "welcome": "Welcome",
+            "have": {
+                "account": "Already have an account?"
+            },
+            "no": {
+                "account": "No account?"
+            },
             "loginForm": {
                 "title": "Login",
                 "email": "Email",
@@ -825,6 +837,12 @@ const translations = {
             "register": "Registrarse",
             "logout": "Cerrar Sesión",
             "welcome": "Bienvenido",
+            "have": {
+                "account": "¿Ya tienes cuenta?"
+            },
+            "no": {
+                "account": "¿No tienes cuenta?"
+            },
             "loginForm": {
                 "title": "Iniciar Sesión",
                 "email": "Email",

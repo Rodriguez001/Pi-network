@@ -448,9 +448,10 @@ footer {
 
 .contact-content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     margin-top: 2rem;
+    align-items: start;
 }
 
 .contact-form {
@@ -475,13 +476,14 @@ footer {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 0.8rem;
+    padding: 1rem;
     border: 2px solid var(--border-dark);
-    border-radius: 10px;
+    border-radius: 12px;
     background: var(--primary-dark);
     color: var(--text-light);
+    font-size: 1rem;
     font-family: inherit;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus,
@@ -489,6 +491,18 @@ footer {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+    transform: translateY(-1px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.form-group select option {
+    background: var(--primary-dark);
+    color: var(--text-light);
 }
 
 .submit-btn {
@@ -605,6 +619,103 @@ footer {
     font-size: 0.8rem;
     color: var(--text-muted);
     opacity: 0.7;
+}
+
+/* Authentication Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: var(--card-dark);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-dark);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--accent-gold);
+}
+
+.auth-form h2 {
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--text-muted);
+}
+
+.auth-switch a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+.auth-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.auth-btn {
+    background: var(--gradient-accent);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.auth-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+}
+
+.user-welcome {
+    color: var(--accent-gold);
+    font-weight: 500;
+}
+
+.language-selector select {
+    background: var(--card-dark);
+    color: var(--text-light);
+    border: 1px solid var(--border-dark);
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
 }
 
 /* Messages Section */
@@ -801,6 +912,24 @@ footer {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .auth-section {
+        margin-top: 0.5rem;
+    }
+    
+    .language-selector {
+        margin-top: 0.5rem;
     }
     
     .messages-content {
